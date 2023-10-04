@@ -1,0 +1,74 @@
+{% extends 'main.html' %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-elements form-elements-1">
+        <label for="rnoEle">Roll Number:</label>
+        <input type="text" name="rno" id="rnoEle" value="">
+    </div>
+    <div class="form-elements form-elements-1">
+        <label for="stdNameEle">Student Name</label>
+        <input type="text" name="name" id="stdNameEle" value="">
+    </div>
+    <div class="form-elements">
+        <div>
+            <label for="yearEle">Year</label>
+            <select id="yearEle"   name="year">
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div>
+            <label for="branchEle">Branch</label>
+         <select name="section" id="branchEle">
+            <option value=""></option>
+            <option value="CSE">CSE</option>
+            <option value="CST">CST</option>
+            <option value="CAI">CAI</option>
+            <option value="AIM">AIM</option>
+            <option value="ECE">ECE</option>
+            <option value="ECT">ECT</option>
+            <option value="EEE">EEE</option>
+            <option value="ME">ME</option>
+            <option value="CE">CE</option>
+        </select><br>   
+        </div>
+    </div>
+    
+    <div class="certificatetitle-dropbox">
+        <label for="titleEle" id="titleLabel">Certificate Title</label>
+        <br/>
+         <select name="title" id="titleEle" >
+            <option value=""></option>
+            <option value="Microsoft Azure Fundamentals(AZ-900)">Microsoft Azure Fundamentals(AZ-900)</option>
+            <option value="Microsoft Azure AI Fundamentals(AI-900)">Microsoft Azure AI Fundamentals(AI-900)</option>
+            <option value="Azure Data Fundamentals(DP-900)">Azure Data Fundamentals(DP-900)</option>
+            <option value="Azure Developer Associate">Azure Developer Associate</option>
+            <option value="Azure Data Scientist Associate">Azure Data Scientist Associate</option>
+            <option value="Azure-AI Engineering Associate">Azure-AI Engineering Associate</option>
+            <option value="Azure Database Administrator Associate">Azure Database Administrator Associate</option>
+            <option value="Microsoft Security, Compliance and Identity Fundamentals">Microsoft Security, Compliance and Identity Fundamentals</option>
+
+            <option value="Oracle colud infrastructure Associate">Oracle colud infrastructure Associate</option>
+            <option value="Oracle java associate">Oracle java associate</option>
+            <option value="Oracle machine learning using autonomous database associate">Oracle machine learning using autonomous database associate</option>
+    
+            <option value="AWS Cloud Practitioner-Foundational">AWS Cloud Practitioner-Foundational</option>
+            <option value="AWS Solutions Architect - Associate">AWS Solutions Architect - Associate</option>
+            <option value="AWS Developer - Associate">AWS Developer - Associate</option>
+    
+            <option value="NPTEL">NPTEL</option>
+        </select>
+    </div>
+    <div class="form-elements"> <input type="submit" name="submit" id="button"/></div>
+    
+</form>
+<div class="result">
+{% if r %}
+    {{val}}
+{% endif %}
+</div>
+{% endblock content %}

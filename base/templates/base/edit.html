@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>All Students </h1>
+            <form action="" method='POST'>
+                {% csrf_token %}
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>roll_name</th>
+                            <th>student_name</th>
+                            <th>year</th>
+                            <th>section</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in form %}
+                        <tr>
+                            <td>{{ x.roll_name }}</td>
+                            <td>{{ x.student_name }}</td>
+                            <td>{{ x.year }}</td>
+                            <td>{{ x.section }}</td>
+                            <td>
+                                <a href="{% url 'edit-stud' x.roll_name %}" class="btn btn-primary btn-sm">Edit</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

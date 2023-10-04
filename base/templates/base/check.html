@@ -1,0 +1,217 @@
+{% extends 'main.html' %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-elements form-elements-1">
+        <label for="rnoEle">Roll Number:</label>
+        <input type="text" name="rno" id="rnoEle" value="">
+    </div>
+    <div class="form-elements">
+        <div>
+            <label for="yearEle">Year</label>
+            <select id="yearEle"   name="year">
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div>
+            <label for="branchEle">Branch</label>
+         <select name="section" id="branchEle">
+            <option value=""></option>
+            <option value="CSE">CSE</option>
+            <option value="CST">CST</option>
+            <option value="CAI">CAI</option>
+            <option value="AIM">AIM</option>
+            <option value="ECE">ECE</option>
+            <option value="ECT">ECT</option>
+            <option value="EEE">EEE</option>
+            <option value="ME">ME</option>
+            <option value="CE">CE</option>
+        </select><br>   
+        </div>
+    </div>
+    <div class="form-elements-1">
+        <label for="titleEle">Certificate Title</label>
+         <select name="title" id="titleEle" >
+            <option value=""></option>
+            <option value="Microsoft Azure Fundamentals(AZ-900)">Microsoft Azure Fundamentals(AZ-900)</option>
+            <option value="Microsoft Azure AI Fundamentals(AI-900)">Microsoft Azure AI Fundamentals(AI-900)</option>
+            <option value="Azure Data Fundamentals(DP-900)">Azure Data Fundamentals(DP-900)</option>
+            <option value="Azure Developer Associate">Azure Developer Associate</option>
+            <option value="Azure Data Scientist Associate">Azure Data Scientist Associate</option>
+            <option value="Azure-AI Engineering Associate">Azure-AI Engineering Associate</option>
+            <option value="Azure Database Administrator Associate">Azure Database Administrator Associate</option>
+            <option value="Microsoft Security, Compliance and Identity Fundamentals">Microsoft Security, Compliance and Identity Fundamentals</option>
+
+            <option value="Oracle colud infrastructure Associate">Oracle colud infrastructure Associate</option>
+            <option value="Oracle java associate">Oracle java associate</option>
+            <option value="Oracle machine learning using autonomous database associate">Oracle machine learning using autonomous database associate</option>
+    
+            <option value="AWS Cloud Practitioner-Foundational">AWS Cloud Practitioner-Foundational</option>
+            <option value="AWS Solutions Architect - Associate">AWS Solutions Architect - Associate</option>
+            <option value="AWS Developer - Associate">AWS Developer - Associate</option>
+    
+            <option value="NPTEL">NPTEL</option>
+        </select>
+    </div>
+    <div class="form-elements"> <input type="submit" name="submit" /></div>
+</form>
+{% for data in form %}
+    <!--only RollNumber-->
+    {% if data.roll_number in roll and roll not in "" and ye in "" and se in "" and tit in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+
+    <!--only Year-->
+    {% elif data.year in ye and ye not in "" and roll in "" and se in "" and tit in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+    <!--only Section-->
+    {% elif data.section in se and se not in "" and roll in "" and ye in "" and tit in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+    <!--only Title-->
+    {% elif data.title in tit and tit not in "" and roll in "" and ye in "" and se in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+    
+
+    <!--RollNumber and Year-->
+    {% elif data.roll_number in roll and data.year in ye and roll not in "" and ye not in "" and se in "" and tit in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+    <!--RollNumber and section-->
+    {% elif data.roll_number in roll and data.section in se and roll not in "" and se not in "" and ye in "" and tit in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+
+    <!--RollNumber and title-->
+    {% elif data.roll_number in roll and data.title in tit and roll not in "" and tit not in "" and ye in "" and se in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+
+    <!--RollNumber and Year and Section-->
+    {% elif data.roll_number in roll and data.year in ye and data.section in se and roll not in "" and ye not in "" and se not in "" and tit in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+    
+    <!--RollNumber and Year and Title-->
+    {% elif data.roll_number in roll and data.year in ye and data.title in titi and roll not in "" and ye not in "" and tit not in "" and se in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+
+    <!--RollNumber and Section and Title-->
+    {% elif data.roll_number in roll and data.section in se and data.title in tit and roll not in "" and se not in "" and tit not in "" and ye in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+
+    <!--Year and section-->
+    {% elif data.year in ye and data.section in se and ye not in "" and se not in "" and roll in "" and tit in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+
+
+    <!--Year and title-->
+    {% elif data.year in ye and data.title in tit and ye not in "" and tit not in "" and roll in "" and se in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+    
+    
+
+    <!--Year and Section and Title-->
+    {% elif data.year in ye and data.section in se and data.title in tit and ye not in "" and se not in "" and tit not in "" and roll in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+    
+    
+
+
+
+
+
+    <!--Section and title-->
+    {% elif data.section in se and data.title in tit and se not in "" and tit not in "" and ye in "" and roll in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+
+
+
+    <!--RollNumber and Year and Section and Title-->
+    {% elif data.roll_number in roll and data.year in ye and data.section in se and data.title in tit and roll not in "" and ye not in "" and se not in "" and tit not in "" %}
+        {{data.roll_number}}
+        {{data.student_name}}
+        {{data.year}}
+        {{data.section}}
+        {{data.title}}<br>
+
+    
+    {% endif %}
+{% endfor %}
+{{count}}
+{% endblock content %}
